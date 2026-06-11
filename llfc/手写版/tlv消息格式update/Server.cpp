@@ -67,9 +67,9 @@ void Session::Send(std::string msg, short msg_id) {
 	}
 	boost::asio::post(
 		_socket.get_executor(),
-		[this, self = shared_from_this(), msg, msg_id](){
+		[this, self = shared_from_this(), msg = std::move(msg), msg_id](){
 			if (_is_closed) return; //防御 1：任务入队之前，确认socket打开，丢弃新数据
-			auto send_node = std::make_shared<SendNode>(msg, msg_id);
+			auto send_node = std::make_shared<SendNode>(std::move(msg), msg_id);
 
 			bool write_in_progress = _is_writing;
 			_send_queue.push_back(send_node);

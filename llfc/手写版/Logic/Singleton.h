@@ -24,7 +24,7 @@ public:
 	}
 
 	void PrintAddress() {
-		std::cout << "Singleton address: " << _instace.get(); << "\n";
+		std::cout << "Singleton address: " << _instance.get(); << "\n";
 	}
 };
 

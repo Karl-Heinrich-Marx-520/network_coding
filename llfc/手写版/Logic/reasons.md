@@ -35,8 +35,6 @@
 | `_instance` | `static std::shared_ptr<T>` | **核心单例指针**。使用智能指针管理，当程序结束或最后一个引用释放时，会自动调用子类析构函数，避免内存泄漏。 |
 | `s_flag` | `static std::once_flag` | **一次性控制标志**。配合 `std::call_once` 使用，内部维护状态，确保初始化代码在多线程下只执行一次。 |
 
-*(注：代码中 `PrintAddress` 里的 `_instace.get();` 存在拼写错误 `_instace` 应为 `_instance`，且多了一个分号，实际使用时需修正。)*
-
 ---
 
 ### 二、 `LogicSystem.h` 详解

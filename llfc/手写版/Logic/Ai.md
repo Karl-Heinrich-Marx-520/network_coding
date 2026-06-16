@@ -81,11 +81,6 @@ public:
 	}
 };
 ```
-
-**原理解析**：
-- `std::call_once` 配合 `std::once_flag` 保证了 `_instance` 的初始化在多线程环境下**绝对只执行一次**，且无需在每次调用 `GetInstance` 时加锁，性能极高。
-- 将构造和析构设为 `protected`，强制子类只能通过 `GetInstance()` 获取实例。
-
 ---
 
 ## 三、 LogicSystem 逻辑处理系统
